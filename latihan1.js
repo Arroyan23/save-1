@@ -2,30 +2,32 @@
 
 // 2. buatkan arraynya
 
-var mahasiswaBaru = ["bobi"];
+var mahasiswaBaru = ["bobi", undefined, "favian"];
 var mahasiswaDo = ["favian"];
 
 // 3. buat function untuk menambah mahasiswa
 
 function tambahMahasiswa(nama) {
+  mahasiswaTerdata = nama;
+
+  // pengkondisian jika kosong
+
   for (var i = 0; i < mahasiswaBaru.length; i++) {
     if (mahasiswaBaru[i] == undefined) {
-      mahasiswaBaru[i] = nama;
-      return mahasiswaBaru;
-    } else if (mahasiswaBaru[i] == nama) {
-      alert(
-        "nama mahasiswa yang anda masukkan sudah terdaftar di mahasiswa baru"
-      );
-      return mahasiswaBaru;
-    } else {
+      mahasiswaBaru[i] = mahasiswaTerdata;
       break;
+    } else if (mahasiswaBaru[i] == mahasiswaTerdata) {
+      alert("Data mahasiswa yang anda masukkan telah ada");
+      break;
+    } else {
+      alert("kalo jalan berarti error");
+      mahasiswaBaru.push("error detected");
     }
-  }
-  mahasiswaBaru.push(nama);
-  alert("Mahasiswa yang bernama : " + nama + " Berhasil ditambahkan.");
-  //   jika terdeteksi undefined maka undefined itu akan di isi oleh mahasiswa baru yang dicantumkan
-}
 
+    alert("Mahasiswa yang bernama : " + nama + " Berhasil ditambahkan.");
+    //   jika terdeteksi undefined maka undefined itu akan di isi oleh mahasiswa baru yang dicantumkan
+  }
+}
 // fungsi untuk membaca seluruh data mahasiswa
 
 function tampilkanDataMahasiswa() {
@@ -85,5 +87,3 @@ while (recursion) {
 // 5. buat pengkondisian if else untuk pemilihan pada prompt
 
 // 6. jika if nya mengarah untuk melihat data buat for each untuk yang ditampilkan pada data
-
-// 7. jika angka yang lain maka tampilkan untuk menambah atau mengurangi
